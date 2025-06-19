@@ -233,7 +233,7 @@ void ottf_external_isr(uint32_t *exc_info) {
         dif_rv_plic_irq_complete(&ottf_plic, kPlicTarget, plic_irq_id));
     return;
   } else if (peripheral == kTopEarlgreyPlicPeripheralAlertHandler &&
-             kOttfTestConfig.catch_alerts) {
+             !kOttfTestConfig.ignore_alerts) {
     ottf_alert_isr(exc_info);
     // Complete the IRQ at PLIC.
     CHECK_DIF_OK(

@@ -171,7 +171,7 @@ void _ottf_main(void) {
     }
   }
 
-  if (kOttfTestConfig.catch_alerts) {
+  if (!kOttfTestConfig.ignore_alerts) {
     CHECK_STATUS_OK(ottf_alerts_enable_all());
   }
 
